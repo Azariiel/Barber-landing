@@ -4,20 +4,22 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import { header } from "framer-motion/client";
+
+// Easing tipado como tupla (evita el error de TS)
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: EASE },
   },
 };
 
 const fadeIn: Variants = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, transition: { duration: 0.6, ease: EASE } },
 };
 
 const zoomIn: Variants = {
@@ -25,7 +27,7 @@ const zoomIn: Variants = {
   show: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.5, ease: EASE },
   },
 };
 
@@ -36,9 +38,8 @@ const stagger: Variants = {
 
 function Content() {
   return (
-    
     <main>
-      {/* HERO */}
+      {/* HERO (colores originales) */}
       <motion.section
         className="grid items-center gap-8 py-16 md:grid-cols-2 p-5"
         initial="hidden"
@@ -55,9 +56,7 @@ function Content() {
             clásicos, faciales y cuidado de barba.
           </p>
           <div className="mt-6 flex gap-3">
-            <a
-              className="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-5 py-3 text-black font-semibold transition-all hover:bg-yellow-500 hover:shadow-lg active:scale-[0.98]"
-            >
+            <a className="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-5 py-3 text-black font-semibold transition-all hover:bg-yellow-500 hover:shadow-lg active:scale-[0.98]">
               <FaWhatsapp className="text-xl" />
               Reservar por WhatsApp
             </a>
@@ -89,7 +88,7 @@ function Content() {
         </motion.div>
       </motion.section>
 
-      {/* SERVICIOS */}
+      {/* SERVICIOS (bg blanco original) */}
       <motion.section
         id="servicios"
         className="scroll-mt-24 py-16 bg-white p-4"
@@ -130,9 +129,7 @@ function Content() {
               <h3 className="text-lg font-bold text-black">{s.t}</h3>
               <p className="mt-1 text-sm text-neutral-600 font-semibold">{s.d}</p>
               <div className="mt-4 font-medium text-gray-800">{s.p}</div>
-              <a
-                className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm transition-all hover:bg-gray-100 active:scale-[0.98]"
-              >
+              <a className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm transition-all hover:bg-gray-100 active:scale-[0.98]">
                 <FaWhatsapp />
                 Agendar
               </a>
@@ -141,7 +138,7 @@ function Content() {
         </motion.div>
       </motion.section>
 
-      {/* UBICACIÓN */}
+      {/* UBICACIÓN (colores originales) */}
       <motion.section
         id="ubicacion"
         className="scroll-mt-24 py-16 p-4"
@@ -169,7 +166,7 @@ function Content() {
         </motion.div>
       </motion.section>
 
-      {/* CONTACTO */}
+      {/* CONTACTO (bg blanco original) */}
       <motion.section
         id="contacto"
         className="scroll-mt-24 py-16 bg-white"
@@ -196,9 +193,7 @@ function Content() {
             <p className="mt-2 text-gray-700">
               Respuesta rápida para agendar tu cita.
             </p>
-            <a
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-black px-5 py-3 text-white transition-all hover:bg-black/90 hover:shadow-lg active:scale-[0.98]"
-            >
+            <a className="mt-4 inline-flex items-center gap-2 rounded-xl bg-black px-5 py-3 text-white transition-all hover:bg-black/90 hover:shadow-lg active:scale-[0.98]">
               <FaWhatsapp className="text-xl" />
               Abrir WhatsApp
             </a>
@@ -211,7 +206,7 @@ function Content() {
         </motion.div>
       </motion.section>
 
-      {/* FOOTER */}
+      {/* FOOTER (negro original) */}
       <motion.footer
         className="bg-black text-white text-center py-6"
         initial="hidden"
