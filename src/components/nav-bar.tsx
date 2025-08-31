@@ -15,7 +15,7 @@ export default function Navbar() {
     );
 
     return (
-        <header className="sticky top-0 w-full bg-gray-900 p-3">
+        <header className="fixed top-0 w-full z-50 bg-gray-900 p-3">
             <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
                 <h1
                     className="text-3xl flex justify-center items-center"
