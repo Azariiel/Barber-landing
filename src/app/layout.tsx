@@ -15,7 +15,32 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Barber - landing",
   description: "Demo de una landing page",
+  metadataBase: new URL('https://barber-landing-demo.vercel.app/'),
+  openGraph: {
+    title: "Barbershop",
+    description: "Cortes y arreglo de barba profesional al mejor servicio. Agenda sin esperas. Ver dirección y horarios",
+    url: 'https://barber-landing-demo.vercel.app/',
+    siteName: "Barbershop Demo",
+    locale: "es_MX",
+    type: "website"
+  }
 };
+function JsonLd() {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Barbershop",
+    name: "Barbershop Demo",
+    url: "https://barber-landing-demo.vercel.app/",
+    priceRange: "$$",
+    openingHours: ["Mo-Sa 10:00-20:00"]
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  )
+}
 
 export default function RootLayout({
   children,
@@ -23,7 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+
+    <html lang="es" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.cdnfonts.com/css/black-gumners"
@@ -34,6 +60,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <JsonLd />
       </body>
     </html>
   );
