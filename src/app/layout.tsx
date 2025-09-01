@@ -50,11 +50,13 @@ export default function RootLayout({
   return (
 
     <html lang="es" className="scroll-smooth" suppressHydrationWarning>
+
       <head>
         <link
           href="https://fonts.cdnfonts.com/css/black-gumners"
           rel="stylesheet"
         />
+        <link rel="icon" href="https://res.cloudinary.com/drjnmocww/image/upload/v1756691896/barbershopFavicon_yzucgd.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
